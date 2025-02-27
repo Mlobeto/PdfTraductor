@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import authReducer from '../Reducer/authReducer';
-// Importa otros reducers aquí
+import pdfReducer from '../Reducer/pdfReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  // Agrega otros reducers aquí
+  pdf: pdfReducer,
+  // agrega otros reducers aquí
 });
 
 export const store = configureStore({
@@ -15,5 +16,3 @@ export const store = configureStore({
       serializableCheck: false,
     }),
 });
-
-export default store;

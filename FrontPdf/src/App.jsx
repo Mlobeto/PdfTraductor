@@ -12,6 +12,7 @@ import Tienda from './Components/Tienda/Tienda';
 import NotFound from './Components/NotFound';
 import Unauthorized from './Components/Auth/Unauthorized';
 import Landing from './Components/Landing';
+import PdfReceipt from './Components/PdfReceipt';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         {/* Rutas públicas */}
         <Route path="/" element={<Landing />} />
+        <Route path="/pdf" element={<PdfReceipt />} />
         <Route path="/tienda" element={<Tienda />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

@@ -5,6 +5,8 @@ const { forgotPassword } = require("./nodemailerController/forgotPassword.js");
 const { resetPassword } = require("./nodemailerController/resetPassword.js");
 const { sendEmail } = require("./nodemailerController/index.js");
 const checkPermissions = require("../middleware/checkPermissions");
+const {upload} = require("./pdfController.js");
+const { processPdf } = require("./pdfController.js");
 
 module.exports = {
   //createProduct: catchedAsync(require("./Products/createProduct")),
@@ -14,6 +16,7 @@ module.exports = {
   resetPassword: catchedAsync(resetPassword),
   sendEmail: catchedAsync(sendEmail),
   checkPermissions: catchedAsync(checkPermissions),
- 
+  upload: catchedAsync(upload),
+  processPdf: catchedAsync(processPdf)
 
 };
