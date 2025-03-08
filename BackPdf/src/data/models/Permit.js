@@ -1,71 +1,78 @@
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('PdfData', {
+  return sequelize.define('Permit', {
+
+    idPermit:{
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false
+    },
     permitNumber: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     applicationNumber: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     documentNumber: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     constructionPermitFor: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     applicant: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     propertyAddress: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     lot: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     block: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     propertyId: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     systemType: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     configuration: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     locationBenchmark: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     elevation: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     drainfieldDepth: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     fillRequired: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     specificationsBy: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     approvedBy: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     dateIssued: {
@@ -77,25 +84,38 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     greaseInterceptorCapacity: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     dosingTankCapacity: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     gpdCapacity: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    exavationRequired:{
+      type: DataTypes.TEXT,
       allowNull: true
     },
     squareFeetSystem: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     other: {
       type: DataTypes.TEXT,
       allowNull: true
-    }
+    },
+    isATU:{
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+
+    pump:{
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
   }, {
     timestamps: true
   });
