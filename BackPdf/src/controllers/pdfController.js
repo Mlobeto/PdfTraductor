@@ -23,13 +23,25 @@ const cleanText = (text) => {
 };
 
 const extractData = (text) => {
+  const cleanedText = cleanText(text);
+
+  // Extrae todas las posibles coincidencias que sigan a "PERMIT #:"
+  const permitMatches = Array.from(
+    cleanedText.matchAll(/PERMIT\s+#:\s*([A-Z0-9\-]+)/gi)
+  );
+  // Filtrar las coincidencias que no sean "MINIMUM"
+  const validPermits = permitMatches
+    .map(m => m[1].trim())
+    .filter(p => p.toUpperCase() !== 'MINIMUM');
+  const permitNumber = validPermits.length > 0 ? validPermits[validPermits.length - 1] : null;
+
   return {
-    permitNumber: text.match(/PERMIT\s+#:\s*([A-Z0-9\-]+)/i)?.[1]?.trim() || null,
-    applicationNumber: text.match(/APPLICATION\s+#:\s*([A-Z0-9]+)/i)?.[1]?.trim() || null,
-    documentNumber: text.match(/DOCUMENT\s+#:\s*(\S+)/i)?.[1]?.trim() || null,
-    constructionPermitFor: text.match(/CONSTRUCTION\s+PERMIT\s+FOR:\s*(OSTDS\s+New)/i)?.[1]?.trim() || null,
-    applicant: text.match(/APPLICANT:\s*(.+?)(?:\s+PROPERTY\s+ADDRESS:|$)/is)?.[1]?.trim() || null,
-    propertyAddress: text.match(/PROPERTY\s+ADDRESS:\s*(.+?)(?:\s+LOT:|$)/is)?.[1]?.trim() || null,
+    permitNumber,
+    applicationNumber: cleanedText.match(/APPLICATION\s+#:\s*(\S+)/i)?.[1]?.trim() || null,
+    documentNumber: cleanedText.match(/DOCUMENT\s+#:\s*(\S+)/i)?.[1]?.trim() || null,
+    constructionPermitFor: cleanedText.match(/CONSTRUCTION\s+PERMIT\s+FOR:\s*(.+?)(?:\s+APPLICANT:|$)/is)?.[1]?.trim() || null,
+    applicant: cleanedText.match(/APPLICANT:\s*(.+?)(?:\s+PROPERTY\s+ADDRESS:|$)/is)?.[1]?.trim() || null,
+    propertyAddress: cleanedText.match(/PROPERTY\s+ADDRESS:\s*(.+?)(?:\s+LOT:|$)/is)?.[1]?.trim() || null,
     systemType: text.match(/A\s+TYPE\s+SYSTEM:\s*(.+?)(?:\n|I\s+CONFIGURATION:)/is)?.[1]?.trim() || null,
     configuration: text.match(/I\s+CONFIGURATION:\s*(.+?)(?:\n|LOCATION\s+OF\s+BENCHMARK:)/is)?.[1]?.trim() || null,
     locationBenchmark: text.match(/LOCATION\s+OF\s+BENCHMARK:\s*(.+?)(?:\n|ELEVATION\s+OF\s+PROPOSED)/is)?.[1]?.trim() || null,
