@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../assets/logoseptic.png"; // Ajusta la ruta según tu estructura
 import ProgressTracker from "./ProgressTracker"; // Importa los componentes necesarios
 import FirstStage from "./firstStage";
+import Materiales from "./Materiales";
 import NotFound from "./NotFound";
 // import Inbox from "./Inbox";
 // import Documents from "./Documents";
@@ -17,7 +18,7 @@ const Header = ({ activeSection, setActiveSection }) => {
       case "Etapa1":
         return <FirstStage />;
       case "Materiales":
-        return <NotFound />;
+        return <Materiales />;
       case "Inspections":
         return <NotFound />;
       case "Clients":
