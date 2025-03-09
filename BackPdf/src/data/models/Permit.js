@@ -76,11 +76,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     dateIssued: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: true
     },
     expirationDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: true
     },
     greaseInterceptorCapacity: {
