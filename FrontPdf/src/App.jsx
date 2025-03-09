@@ -1,14 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from './Redux/Actions/authActions';
 import PrivateRoute from './Components/PrivateRoute';
+import FirstStage from './Components/firstStage';
+import Header from './Components/Header';
 
 // Importa tus componentes
 import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
 import Dashboard from './Components/Dashboard/Dashboard';
-import Tienda from './Components/Tienda/Tienda';
+import Seguimiento from './Components/Seguimiento/Seguimiento';
 import NotFound from './Components/NotFound';
 import Unauthorized from './Components/Auth/Unauthorized';
 import Landing from './Components/Landing';
@@ -16,6 +18,7 @@ import PdfReceipt from './Components/PdfReceipt';
 
 function App() {
   const dispatch = useDispatch();
+  const [activeSection, setActiveSection] = useState("Overview");
 
   useEffect(() => {
     // Verificar si hay un token guardado al iniciar la app
@@ -31,24 +34,29 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
       <Routes>
         {/* Rutas públicas */}
         <Route path="/" element={<Landing />} />
         <Route path="/pdf" element={<PdfReceipt />} />
-        <Route path="/tienda" element={<Tienda />} />
+        <Route path="/seguimiento" element={<Seguimiento />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/firststage" element={<FirstStage />} />
+
+
 
         {/* Rutas protegidas */}
-        <Route
+        {/* <Route
           path="/dashboard"
           element={
             <PrivateRoute allowedRoles={['Owner']}>
               <Dashboard />
             </PrivateRoute>
           }
-        />
+        /> */}
 
 
 
