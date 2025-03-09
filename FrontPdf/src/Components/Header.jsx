@@ -1,26 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../assets/logoseptic.png"; // Ajusta la ruta según tu estructura
 import ProgressTracker from "./ProgressTracker"; // Importa los componentes necesarios
 import FirstStage from "./firstStage";
+import NotFound from "./NotFound";
 // import Inbox from "./Inbox";
 // import Documents from "./Documents";
 // import Activity from "./Activity";
 
-const sections = ["Overview", "Etapa1", "Inbox", "Documents", "Activity"];
+const sections = ["Progress", "Etapa1", "Materiales", "Inspections", "Clients"];
 
 const Header = ({ activeSection, setActiveSection }) => {
   const renderSection = () => {
     switch (activeSection) {
-      case "Overview":
+      case "Progress":
         return <ProgressTracker />;
       case "Etapa1":
         return <FirstStage />;
-      // case "Inbox":
-      //   return <Inbox />;
-      // case "Documents":
-      //   return <Documents />;
-      // case "Activity":
-      //   return <Activity />;
+      case "Materiales":
+        return <NotFound />;
+      case "Inspections":
+        return <NotFound />;
+      case "Clients":
+        return <NotFound />;
       default:
         return null;
     }
@@ -33,7 +34,7 @@ const Header = ({ activeSection, setActiveSection }) => {
           <img src={logo} alt="Logo" className="w-12 h-12" />
           <span>ZURCHER CONSTRUCTION</span>
         </div>
-        <div className="flex gap-6 mt-3 md:mt-0">
+        <div className="flex flex-wrap gap-2 md:gap-6 mt-3 md:mt-0">
           {sections.map((section) => (
             <button
               key={section}

@@ -26,7 +26,7 @@ const ProgressTracker = () => {
   const getProgressIndex = (etapa) => etapas.indexOf(etapa);
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-4 md:p-6 lg:p-8 max-w-4xl mx-auto">
       <input
         type="text"
         placeholder="Buscar por N° de Cliente"
@@ -37,14 +37,14 @@ const ProgressTracker = () => {
       {filteredData.map(({ id, numeroCliente, etapaActual }) => (
         <div key={id} className="mb-6 bg-white p-4 shadow-md rounded-lg">
           <h3 className="font-bold text-lg mb-2">Cliente: {numeroCliente}</h3>
-          <div className="relative flex items-center">
+          <div className="relative flex items-center overflow-x-auto">
             <div className="absolute w-full h-2 bg-gray-300 rounded-full"></div>
             <div
               className="absolute h-2 bg-green-500 rounded-full"
               style={{ width: `${(getProgressIndex(etapaActual) / (etapas.length - 1)) * 100}%` }}
             ></div>
             {etapas.map((etapa, index) => (
-              <div key={etapa} className="relative flex flex-col items-center w-full">
+              <div key={etapa} className="relative flex flex-col items-center w-full min-w-max">
                 <div
                   className={`w-6 h-6 flex items-center justify-center rounded-full text-white text-xs z-10 ${
                     getProgressIndex(etapaActual) >= index

@@ -35,34 +35,32 @@ function App() {
   return (
     <BrowserRouter>
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-      <Routes>
-        {/* Rutas públicas */}
-        <Route path="/" element={<Landing />} />
-        <Route path="/pdf" element={<PdfReceipt />} />
-        <Route path="/seguimiento" element={<Seguimiento />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/unauthorized" element={<Unauthorized />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/firststage" element={<FirstStage />} />
+      <div className="container mx-auto p-4">
+        <Routes>
+          {/* Rutas públicas */}
+          <Route path="/" element={<Landing />} />
+          <Route path="/pdf" element={<PdfReceipt />} />
+          <Route path="/seguimiento" element={<Seguimiento />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/firststage" element={<FirstStage />} />
 
+          {/* Rutas protegidas */}
+          {/* <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute allowedRoles={['Owner']}>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          /> */}
 
-
-        {/* Rutas protegidas */}
-        {/* <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute allowedRoles={['Owner']}>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        /> */}
-
-
-
-        {/* Ruta por defecto para 404 */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          {/* Ruta por defecto para 404 */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
