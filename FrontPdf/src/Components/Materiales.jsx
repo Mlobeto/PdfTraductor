@@ -121,10 +121,13 @@ const Materiales = () => {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               >
                 <option value="">Seleccione un material</option>
-                <option value="Cemento">Cemento</option>
-                <option value="Arena">Arena</option>
-                <option value="Grava">Grava</option>
-                <option value="Ladrillos">Ladrillos</option>
+                <option value="Tanque ATU 500 Infiltrator">Tanque ATU 500 Infiltrator</option>
+                <option value="Kit alarma compresor">Kit alarma compresor</option>
+                <option value="Clean Out">Clean Out</option>
+                <option value="Cruz de 4">Cruz de 4</option>
+                <option value="Codos de 90">Codos de 90</option>
+                <option value="T de 4">T de 4</option>
+                <option value="Chambers arc24">Chambers arc24</option>
                 {/* Add more materials as needed */}
               </select>
             </div>
