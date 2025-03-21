@@ -6,34 +6,46 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-<<<<<<< HEAD
 
-=======
+
+
+
+
+
 .env
->>>>>>> Yani1
+
+
+
+
 node_modules
 dist
 dist-ssr
 *.local
-<<<<<<< HEAD
-.env
-=======
 
->>>>>>> Yani1
+.env
+
+
+
+
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
-<<<<<<< HEAD
+
+
+
 .ntvs
 *.njsproj
 *.sln
 *.sw?
-=======
+
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
->>>>>>> Yani1
+
+
