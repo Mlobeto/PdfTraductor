@@ -1,18 +1,12 @@
-const express = require('express');
-const config = require('./config/config');
-const setupRoutes = require('./routes/index');
+const app = require('./src/app.js');
+const { conn } = require('./src/data');
+const { PORT } = require('./src/config/envs.js');
+require('dotenv').config();
 
-const app = express();
-const PORT = config.PORT || 3000;
-
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Setup routes
-setupRoutes(app);
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+// Syncing all the models at once.
+conn.sync({ force : true }).then(async () => {
+  app.listen(PORT, () => {
+    console.log(`🚀 listening on port: ${PORT} 🚀`);
+  });
+ 
 });

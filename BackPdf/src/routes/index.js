@@ -4,7 +4,7 @@ const router = Router();
 
 
 router.use("/user", require("./authRoutes"));
-//router.use("/permission", require("./permissionRouter"));
+router.use('/pdf', require('./pdfRoutes'));
 
                                                                                                                                                            
 module.exports = router;
