@@ -6,11 +6,18 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+
 .env
+
+
+
 node_modules
 dist
 dist-ssr
 *.local
+
+
+
 
 # Editor directories and files
 .vscode/*
@@ -18,7 +25,9 @@ dist-ssr
 .idea
 .DS_Store
 *.suo
-*.ntvs*
+
+.ntvs
 *.njsproj
 *.sln
 *.sw?
+

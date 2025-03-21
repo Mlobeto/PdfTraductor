@@ -1,6 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define('Permit', {
-
     idPermit:{
       type: DataTypes.UUID,
       primaryKey: true,
@@ -111,11 +110,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-
     pump:{
       type: DataTypes.TEXT,
       allowNull: true
     },
+    // Nuevo campo para almacenar el PDF (por ejemplo, en formato BLOB)
+    pdfData: {
+      type: DataTypes.BLOB('long'),
+      allowNull: true
+    }
   }, {
     timestamps: true
   });
