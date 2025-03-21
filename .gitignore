@@ -11,14 +11,7 @@ lerna-debug.log*
 
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 .env
-<<<<<<< HEAD
-
-=======
-
-report.[0-9].[0-9].[0-9].[0-9].json
-
-
->>>>>>> FM-01
+.env.local
 # Runtime data
 pids
 *.pid
@@ -136,9 +129,6 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
-<<<<<<< HEAD
-=======
 
->>>>>>> FM-01
 .pnp.*
 
